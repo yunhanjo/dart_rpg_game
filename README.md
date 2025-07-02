@@ -1,5 +1,5 @@
 <h1 align="center">
-Dart Console ShoppingMall Application
+Dart Console RPG Game Application
 </h1>
 <h3 align="center">
 [Dart 심화] 개인 과제 - RPG Game
