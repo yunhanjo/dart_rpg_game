@@ -139,8 +139,8 @@ Dart Console RPG Game Application
 
 ## TroubleShooting
 
-#### 콘솔 쇼핑몰을 터미널에서 실행하는 방법
-- 필요성: 콘솔에서는 입력 받을 수 없기 때문에 터미널에서 실행
+#### readAsString() 파일 경로
+- 필요성: dart:io 라이브러리의 File 클래스를 사용하여 파일을 읽어오고 싶어서
 - 해결책: 터미널에 "dart run" 입력
 - 개선점: 터미널로 실행 가능
 
