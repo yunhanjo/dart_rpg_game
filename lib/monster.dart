@@ -12,15 +12,13 @@ class Monster extends Fight { //몬스터를 정의하기 위한 클래스
 
   static int _makeAttack(int maxAttack, int defense) {
   final rand = Random();
+  int attack = rand.nextInt(maxAttack + 1); //defense보다 큰 랜덤 공격력 만들기
 
-  // defense보다 큰 랜덤 공격력 만들기
-  int attack = rand.nextInt(maxAttack + 1);
-
-  // 공격력이 너무 낮으면 강제로 defense보다 크게 만들기
+  //공격력이 너무 낮으면 defense보다 크게 만들기
   if (attack <= defense) {
     attack = defense + 1;
     if (attack > maxAttack) {
-      attack = maxAttack; // maxAttack은 넘지 않게
+      attack = maxAttack; //maxAttack은 넘지 않게
     }
   }
   return attack;
