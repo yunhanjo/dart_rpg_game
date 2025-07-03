@@ -1,16 +1,22 @@
 <h1 align="center">
+<br/>
 Dart Console RPG Game Application
 </h1>
+
+<div align="center">
+  <img width="300" height="400" alt="스크린샷 2025-07-04 00 05 39" src="https://github.com/user-attachments/assets/4d9414ee-10d4-41ef-a165-1c056542a523" />
+  <img width="300" height="400" alt="스크린샷 2025-07-03 23 44 54" src="https://github.com/user-attachments/assets/ab33528d-bc92-47fd-8e57-a5ff0610be96" />
+  <img width="300" height="400" alt="스크린샷 2025-07-03 23 45 39" src="https://github.com/user-attachments/assets/b903f514-0e4a-42a4-94f9-edbc99abfa73" />
+</div>
+
 <h3 align="center">
 [Dart 심화] 개인 과제 - RPG Game
 </h3>
-
 <p align="center"> 프로젝트 일정 25/06/30~25/07/04
 </p>
 
-
-
-
+<br/>
+<br/>
 <br/>
 <h2>프로젝트 개요</h2>
 
@@ -82,56 +88,8 @@ Dart Console RPG Game Application
 
 - 추상 클래스에서 공통으로 사용되는 변수 선언
 - 상속 받는 클래스에서 함수 재정의 하기. 함수 재정의는 아래와 같은 형식
-
-  <br/>
-  <br/>
-
-## **도전 기능 완료**
-
-### 1. 캐릭터의 체력 증가 기능 추가
-
-**[ 설명 ]**
-
-- 30%의 확률로 캐릭터에게 보너스 체력을 제공합니다.
-
-**[ 조건 ]** 
-
-- 게임이 시작되고 캐릭터의 데이터를 불러온 후 해당 기능을 호출합니다.
-- 30%의 확률로 `character`의 `health`를 `10` 증가 시킵니다.
-- 보너스 체력을 얻었을 시 아래와 같이 출력합니다.
-    - 출력 예시 `'보너스 체력을 얻었습니다! 현재 체력: ${character.health}'`
-
 ---
 
-### 2. 전투 시 캐릭터의 아이템 사용 기능 추가
-
-**[ 설명 ]**
-
-- 캐릭터가 전투 중에 한 번 특수 아이템을 사용할 수 있는 기능을 구현합니다.
-
-**[ 조건 ]**
-
-- 전투 중 사용자가 `3`을 입력하면 아이템을 사용합니다.
-- 아이템이 사용되었는지 확인하는 변수를 추가합니다.
-- 아이템을 사용했다면 다시 사용할 수 없도록 처리합니다.
-- 아이템 사용 시 캐릭터는 한 턴 동안 공격력이 두 배로 변경됩니다.
-
----
-
-### 3. 몬스터의 방어력 증가 기능 추가
-
-**[ 설명 ]**
-
-- 몬스터의 방어력을 특정 턴마다 증가시킵니다.
-- 방어력 증가로 인하여 캐릭터가 몬스터에게 입히는 데미지가 줄어들게 됩니다.
-
-**[ 조건 ]**
-
-- 3턴마다 **방어력이 2씩 증가**하도록 함수를 작성합니다.
-- 방어력 증가 시 출력 문구는 아래로 작성합니다.
-    - `'${name}의 방어력이 증가했습니다! 현재 방어력: $defense’`
-
----
 
 
 <br/>
@@ -139,51 +97,54 @@ Dart Console RPG Game Application
 
 ## TroubleShooting
 
-#### readAsString() 파일 경로
-- 필요성: dart:io 라이브러리의 File 클래스를 사용하여 파일을 읽어오고 싶어서
-- 해결책: 터미널에 "dart run" 입력
-- 개선점: 터미널로 실행 가능
+> ### readAsString() 파일 경로
+- 필요성: dart:io 라이브러리의 File 클래스를 사용하여 파일을 읽어오고 싶어서 dart_rpg_game/lib 폴더에 characters.txt와 monsters.txt 파일을 추가한 후 아래와 같은 코드를 작성하고 dart run 했는데 오류가 발생
+- 해결책: 경로를 바꿔서 lib/characters.txt 를 직접 가리키는 방법
+- 개선점: txt파일의 정보를 올바르게 출력
 
-#### productpricelist가 int 타입이라 오류 발생
-- 문제: String printlist = productlist[i]+' / '+productpricelist[i]+'원';
-- 해결책: to.String() 사용해서 해결
-- 개선점: printlist = productnamelist[i]+' | '+productpricelist[i].toString()+'원';
+> ### Too few positional arguments 오류
+- 문제: Monster.attackTarget() {
+  character.defend(); //인자 누락 오류 발생
+  }
+- 해결책: defend() 메서드는 공격력(int)을 인자로 받도록 정의
+- 개선점: Monster.attackTarget() {
+  character.defend(monster.attack); //인자 전달 추가
+  }
 
-#### containsKey(변수)의 반환값
-- 문제: if (inputname==ShoppingMall().productMap.containsKey(inputname)) {
-  입력 받은 상품 이름 == 상품 목록 중의 키값과 비교하려 했으나 containsKey의 반환값은
-  true or false 이기 때문에 오류 발생
-- 해결책: if (ShoppingMall().productMap.containsKey(inputname)==true) {
-- 개선점: ShoppingMall 클래스의 상품 목록 중의 키값이 입력 받은 상품 이름과 일치해서
-  true를 반환하면 조건과 일치하기 때문에 해결
+> ### 터미널 입력 자동 줄바꿈
+- 문제: //print() -> 자동 줄바꿈
+       print('캐릭터의 이름을 입력하세요 : ');
+       String name = stdin.readLineSync();
+- 해결책: //stdout.write()를 사용해 같은 줄에 출력되도록 변경
+        stdout.write('캐릭터의 이름을 입력하세요: ');
+        String name = stdin.readLineSync();
+- 개선점: 올바르게 출력 -> 캐릭터의 이름을 입력하세요 : gkswh
 
-#### try { throw(); } catch (e) {}
-- 문제: try { throw Exception('오류발생'); } catch (e) {}
-  "Exception : 오류발생" 이라고 출력
-- 해결책: Exception을 지우고 throw만 사용
-- 개선점: "오류발생" 출력
+> ### Future<void> ____() async {...}
+- 문제: await game.startGame(name);
+- 해결책: startGame()이 아무것도 반환하지 않는데(void), await는 Future가 반환되어야 사용 가능
+- 개선점:<br/>
 
-#### late
-- 문제: 상품 목록을 출력하는 메서드 showProducts()에서 뿐만 아니라 다른 메서드에서도
-  사용하고 싶어서 showProducts() 밖에 선언했는데 오류
-- 해결책: 변수를 선언할 당시에는 넣어줄 값을 아직 특정하기 어려워서 late 변수로 선언
-- 개선점: 여러 메서드에서 사용 가능
+>        //기존 코드
+>        void startGame(String name) {
+>           ...
+>        }
+>        //변경한 코드
+>        Future<void> startGame(String name) async {
+>           ...
+>           //내부에서 await 사용하려면 반드시 async 선언
+>        }
 
 
+> ### 파일 디렉토리 나누기
+- 문제: bin/dart_rpg_game.dart에 코딩을 하다가 클래스마다 코드가 길어져서 읽기가 힘들어짐
+- 해결책: lib 폴더에 클래스별로 dart 파일 생성 후 직접 import <br/>
+        import 'dart_rpg_game.dart'; <br/>
+        import 'game.dart'; <br/>
+        import 'character.dart'; <br/>
+        import 'monster.dart';
+- 개선점: 클래스별로 파일이 나눠져있어 가독성이 향상
 <br/>
 <br/>
-
-## 개선사항
-
-### 2025/06/27 : 도전 기능 3. 장바구니에 담은 상품들의 목록과 가격을 볼 수 있는 기능 미완성
-
-**[ 설명 ]**
-
-- `3`을 입력 시 장바구니에 담긴 상품 목록과 장바구니에 담긴 상품들의 금액 총합을 출력합니다.
-
-**[ 조건 ]**
-
-- 장바구니가 비어있을 경우 `장바구니에 담긴 상품이 없습니다.` 출력
-- 출력 형태 : `장바구니에 셔츠, 청바지, 넥타이가 담겨있네요. 총 [가격]원 입니다!`
 
 
