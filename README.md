@@ -4,9 +4,9 @@ Dart Console RPG Game Application
 </h1>
 
 <div align="center">
-  <img width="300" height="400" alt="스크린샷 2025-07-04 00 05 39" src="https://github.com/user-attachments/assets/4d9414ee-10d4-41ef-a165-1c056542a523" />
-  <img width="300" height="400" alt="스크린샷 2025-07-03 23 44 54" src="https://github.com/user-attachments/assets/ab33528d-bc92-47fd-8e57-a5ff0610be96" />
-  <img width="300" height="400" alt="스크린샷 2025-07-03 23 45 39" src="https://github.com/user-attachments/assets/b903f514-0e4a-42a4-94f9-edbc99abfa73" />
+  <img width="200" height="300" alt="스크린샷 2025-07-04 00 05 39" src="https://github.com/user-attachments/assets/4d9414ee-10d4-41ef-a165-1c056542a523" />
+  <img width="200" height="300" alt="스크린샷 2025-07-03 23 44 54" src="https://github.com/user-attachments/assets/ab33528d-bc92-47fd-8e57-a5ff0610be96" />
+  <img width="200" height="300" alt="스크린샷 2025-07-03 23 45 39" src="https://github.com/user-attachments/assets/b903f514-0e4a-42a4-94f9-edbc99abfa73" />
 </div>
 
 <h3 align="center">
