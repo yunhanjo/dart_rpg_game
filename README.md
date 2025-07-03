@@ -98,27 +98,33 @@ Dart Console RPG Game Application
 ## TroubleShooting
 
 > ### readAsString() 파일 경로
-- 필요성: dart:io 라이브러리의 File 클래스를 사용하여 파일을 읽어오고 싶어서 dart_rpg_game/lib 폴더에 characters.txt와 monsters.txt 파일을 추가한 후 아래와 같은 코드를 작성하고 dart run 했는데 오류가 발생
+- 필요성: dart:io 라이브러리의 File 클래스를 사용하여 파일을 읽어오고 싶어서 <br/>
+dart_rpg_game/lib 폴더에 characters.txt와 monsters.txt 파일을 추가한 후 <br/>
+아래와 같은 코드를 작성하고 dart run 했는데 오류가 발생
 - 해결책: 경로를 바꿔서 lib/characters.txt 를 직접 가리키는 방법
-- 개선점: txt파일의 정보를 올바르게 출력
+- 개선점: txt파일의 정보를 올바르게 출력<br/><br/>
 
 > ### Too few positional arguments 오류
-- 문제: Monster.attackTarget() {
-  character.defend(); //인자 누락 오류 발생
-  }
+- 문제: <br/>
+Monster.attackTarget() {<br/>
+  character.defend(); //인자 누락 오류 발생<br/>
+  }<br/>
 - 해결책: defend() 메서드는 공격력(int)을 인자로 받도록 정의
-- 개선점: Monster.attackTarget() {
-  character.defend(monster.attack); //인자 전달 추가
-  }
+- 개선점: <br/>
+Monster.attackTarget() {<br/>
+  character.defend(monster.attack); //인자 전달 추가<br/>
+  }<br/><br/>
 
 > ### 터미널 입력 자동 줄바꿈
-- 문제: //print() -> 자동 줄바꿈
-       print('캐릭터의 이름을 입력하세요 : ');
-       String name = stdin.readLineSync();
-- 해결책: //stdout.write()를 사용해 같은 줄에 출력되도록 변경
-        stdout.write('캐릭터의 이름을 입력하세요: ');
-        String name = stdin.readLineSync();
-- 개선점: 올바르게 출력 -> 캐릭터의 이름을 입력하세요 : gkswh
+- 문제: <br/>
+  //print() -> 자동 줄바꿈<br/>
+       print('캐릭터의 이름을 입력하세요 : ');<br/>
+       String name = stdin.readLineSync();<br/>
+- 해결책: <br/>
+//stdout.write()를 사용해 같은 줄에 출력되도록 변경<br/>
+        stdout.write('캐릭터의 이름을 입력하세요: ');<br/>
+        String name = stdin.readLineSync();<br/>
+- 개선점: 올바르게 출력 -> 캐릭터의 이름을 입력하세요 : gkswh<br/><br/>
 
 > ### Future<void> ____() async {...}
 - 문제: await game.startGame(name);
@@ -134,7 +140,7 @@ Dart Console RPG Game Application
 >           ...
 >           //내부에서 await 사용하려면 반드시 async 선언
 >        }
-
+<br/>
 
 > ### 파일 디렉토리 나누기
 - 문제: bin/dart_rpg_game.dart에 코딩을 하다가 클래스마다 코드가 길어져서 읽기가 힘들어짐
